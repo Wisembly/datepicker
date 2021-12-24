@@ -17,7 +17,7 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
   return (
     <div className="sdp--month-picker">
       <button
-        className=""
+        className="sdp--square-btn sdp--square-btn__shadowed"
         onClick={prevMonth}
         aria-label="Go to previous month"
         type="button"
@@ -50,7 +50,7 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
         {getMonthNameFromNumber(month)} {year}
       </p>
       <button
-        className=""
+        className="sdp--square-btn sdp--square-btn__shadowed"
         onClick={nextMonth}
         aria-label="Go to next month"
         type="button"

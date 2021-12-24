@@ -20,7 +20,7 @@
 .sdp--month-name:focus,
 .sdp--square-btn:focus {
   outline: none;
-  box-shadow: 0px 0px 0px 2px #60a5fab3;
+  box-shadow: none;
 }
 
 .sdp--month-name {
@@ -59,11 +59,11 @@
 }
 
 .sdp--square-btn__shadowed {
-  box-shadow: var(--shadow);
+  box-shadow: none;
 }
 
 .sdp--square-btn__shadowed:focus:hover {
-  box-shadow: var(--shadow);
+  box-shadow: none;
 }
 
 .sdp--date-btn__selected {
@@ -73,7 +73,7 @@
 }
 
 .sdp--date-btn__selected.sdp--square-btn:focus {
-  box-shadow: var(--shadow);
+  box-shadow: none;
 }
 
 .sdp--month-picker {
