@@ -22,14 +22,14 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
         aria-label="Go to previous month"
         type="button"
       >
-          <polyline
-            points="160 208 80 128 160 48"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="14"
-          ></polyline>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          fill="currentColor"
+          viewBox="0 0 256 256"
+        >
+        </svg>
       </button>
       <p
         className="sdp--text sdp--month-name"
@@ -46,14 +46,14 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
         aria-label="Go to next month"
         type="button"
       >
-          <polyline
-            points="96 48 176 128 96 208"
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="14"
-          ></polyline>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="14"
+          height="14"
+          fill="currentColor"
+          viewBox="0 0 256 256"
+        >
+        </svg>
       </button>
     </div>
   );
