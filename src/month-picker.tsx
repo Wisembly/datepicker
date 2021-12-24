@@ -17,7 +17,7 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
   return (
     <div className="sdp--month-picker">
       <button
-        className="sdp--square-btn sdp--square-btn__shadowed"
+        className=""
         onClick={prevMonth}
         aria-label="Go to previous month"
         type="button"
@@ -29,6 +29,15 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
           fill="currentColor"
           viewBox="0 0 256 256"
         >
+          <rect width="256" height="256" fill="none"></rect>
+          <polyline
+            points="160 208 80 128 160 48"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="14"
+          ></polyline>
         </svg>
       </button>
       <p
@@ -41,7 +50,7 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
         {getMonthNameFromNumber(month)} {year}
       </p>
       <button
-        className="sdp--square-btn sdp--square-btn__shadowed"
+        className=""
         onClick={nextMonth}
         aria-label="Go to next month"
         type="button"
@@ -53,6 +62,15 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
           fill="currentColor"
           viewBox="0 0 256 256"
         >
+          <rect width="256" height="256" fill="none"></rect>
+          <polyline
+            points="96 48 176 128 96 208"
+            fill="none"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="14"
+          ></polyline>
         </svg>
       </button>
     </div>
