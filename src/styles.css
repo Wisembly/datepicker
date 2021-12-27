@@ -39,7 +39,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 0.5rem;
+  border-radius: 100%;
   border: none;
   background-color: #fff;
   cursor: pointer;
