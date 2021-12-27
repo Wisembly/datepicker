@@ -5,6 +5,7 @@ type DateButtonProps = {
   active: boolean;
   selected: boolean;
   onClick: (date: Date) => void;
+  color: string;
 };
 
 const dateOptions: Intl.DateTimeFormatOptions = {
@@ -19,16 +20,18 @@ const DateButton: React.FC<DateButtonProps> = ({
   active,
   onClick,
   selected,
+  color,
 }) => (
   <button
     className={`sdp--square-btn sdp--date-btn ${
       selected ? 'sdp--date-btn__selected' : ''
     } sdp--text ${!active ? 'sdp--text__inactive' : ''}`}
+    style={{backgroundColor: selected ? color : "#FFFFFF"}}
     onClick={() => onClick(date)}
     tabIndex={active ? 0 : -1}
     aria-label={`${
       selected ? 'Currently selected' : 'Select'
-    } ${date.toLocaleDateString('en-US', dateOptions)}`}
+    } ${date.toLocaleDateString('fr-FR', dateOptions)}`}
     type="button"
   >
     {date.getDate()}

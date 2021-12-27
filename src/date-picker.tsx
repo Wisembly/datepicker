@@ -22,6 +22,10 @@ export type DatePickerProps = {
    * The maximum date that can be selected (inclusive).
    */
   maxDate?: Date;
+  /**
+   * The color that will be use to color the day choosen.
+   */
+  color?: string;
 } & React.PropsWithRef<
   Omit<React.HTMLProps<HTMLDivElement>, 'onChange' | 'selected'>
 >;
@@ -34,6 +38,7 @@ const DatePicker = React.forwardRef<HTMLDivElement, DatePickerProps>(
       minDate = new Date(1900, 0, 1),
       maxDate,
       className,
+      color,
       ...props
     },
     ref
@@ -121,6 +126,7 @@ const DatePicker = React.forwardRef<HTMLDivElement, DatePickerProps>(
                 active={dVal >= minDateVal && dVal <= maxDateVal && active}
                 selected={selectedDate.toDateString() === d.toDateString()}
                 onClick={setNewSelectedDate}
+                color={color || ""}
               />
             );
           })}

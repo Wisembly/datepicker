@@ -1,14 +1,12 @@
 .sdp {
   --font: inherit, -apple-system, 'Segoe UI', Ubuntu, 'Helvetica Neue',
     sans-serif;
-  --theme-color: #60a5fa;
   --selected-date-color: #ffffff;
   width: 16rem;
   border: none;
   border-radius: 0.5rem;
   box-shadow: var(--shadow);
   background-color: #ffffff;
-  padding: 0.75rem;
 }
 
 .sdp:focus,
@@ -62,7 +60,6 @@
 }
 
 .sdp--date-btn__selected {
-  background-color: var(--theme-color);
   color: var(--selected-date-color);
   box-shadow: var(--shadow);
 }
