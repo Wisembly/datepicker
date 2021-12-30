@@ -35,20 +35,51 @@ export const getMonthNameFromNumber = (month: number, language?: string): string
   return language == "fr" ? MOIS[month] : MONTHS[month];
 };
 
-export const getDatesOfMonth = (date: Date, language?: string): { d: Date; active: boolean;  }[] => {
+export const getDatesOfMonth = (date: Date, language?: string): { d: Date; active: boolean; inMonth: boolean }[] => {
   // generate dates of each week of the month including the residue dates
   // of the last week of previous month and first week of next month
+  const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
   const lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
+  const firstDayOfMonthWeekDay = firstDayOfMonth.getDay();
+  const lastDayOfMonthWeekDay = lastDayOfMonth.getDay();
 
-  const dates: { d: Date; active: boolean }[] = [];
+  const previousMonth = new Date(date.getFullYear(), date.getMonth(), 0);
+  const previousMonthLastDay = new Date(
+    previousMonth.getFullYear(),
+    previousMonth.getMonth() + 1,
+    0
+  );
 
+  const nextMonth = new Date(date.getFullYear(), date.getMonth() + 2, 0);
 
+  const dates: { d: Date; active: boolean; inMonth: boolean; }[] = [];
+
+  for (let i = 0; i < firstDayOfMonthWeekDay; i++) {
+    dates.push({
+      d: new Date(
+        previousMonth.getFullYear(),
+        previousMonth.getMonth(),
+        previousMonthLastDay.getDate() - firstDayOfMonthWeekDay + i + (language === "fr" ? 2 : 1)
+      ),
+      active: false,
+      inMonth: false,
+    });
+  }
 
   for (let i = 0; i < lastDayOfMonth.getDate(); i++) {
     dates.push({
       d: new Date(date.getFullYear(), date.getMonth(), i + (language === "fr" ? 2 : 1)),
       active: true,
+      inMonth: true,
+    });
+  }
+
+  for (let i = 0; i < 6 - lastDayOfMonthWeekDay; i++) {
+    dates.push({
+      d: new Date(nextMonth.getFullYear(), nextMonth.getMonth(), i + (language === "fr" ? 2 : 1)),
+      active: false,
+      inMonth: false,
     });
   }
 

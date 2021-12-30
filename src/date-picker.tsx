@@ -123,10 +123,11 @@ const DatePicker = React.forwardRef<HTMLDivElement, DatePickerProps>(
           <p className="sdp--text sdp--text__inactive">{language === "fr" ? "ve" : "Tu"}</p>
           <p className="sdp--text sdp--text__inactive">{language === "fr" ? "sa" : "Fr"}</p>
           <p className="sdp--text sdp--text__inactive">{language === "fr" ? "di" : "Sa"}</p>
-          {getDatesOfMonth(monthDate, language).map(({ d, active }) => {
+          {getDatesOfMonth(monthDate, language).map(({ d, active, inMonth }) => {
             const dVal = d.getTime();
 
             return (
+              inMonth ? 
               <DateButton
                 key={dVal}
                 date={d}
@@ -135,6 +136,8 @@ const DatePicker = React.forwardRef<HTMLDivElement, DatePickerProps>(
                 onClick={setNewSelectedDate}
                 color={color || ""}
               />
+              :
+              <div/>
             );
           })}
         </div>
