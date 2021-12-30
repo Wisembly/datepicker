@@ -1,5 +1,3 @@
-import { LazyExoticComponent } from "react";
-
 const MONTHS: { [key: number]: string } = {
   0: 'January',
   1: 'February',
