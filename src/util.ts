@@ -1,3 +1,5 @@
+import { LazyExoticComponent } from "react";
+
 const MONTHS: { [key: number]: string } = {
   0: 'January',
   1: 'February',
@@ -35,10 +37,10 @@ export const getMonthNameFromNumber = (month: number, language?: string): string
   return language == "fr" ? MOIS[month] : MONTHS[month];
 };
 
-export const getDatesOfMonth = (date: Date): { d: Date; active: boolean; inMonth: boolean }[] => {
+export const getDatesOfMonth = (date: Date, language?: string): { d: Date; active: boolean; inMonth: boolean }[] => {
   // generate dates of each week of the month including the residue dates
   // of the last week of previous month and first week of next month
-  const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 0);
+  const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), language === "fr" ? 0 : 1);
   const lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
   const firstDayOfMonthWeekDay = firstDayOfMonth.getDay();
