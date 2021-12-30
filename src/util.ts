@@ -69,7 +69,7 @@ export const getDatesOfMonth = (date: Date): { d: Date; active: boolean; inMonth
 
   for (let i = 0; i < lastDayOfMonth.getDate(); i++) {
     dates.push({
-      d: new Date(date.getFullYear(), date.getMonth(), i + 1),
+      d: new Date(date.getFullYear(), date.getMonth(), i + 2),
       active: true,
       inMonth: true,
     });
