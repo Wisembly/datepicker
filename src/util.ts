@@ -38,7 +38,7 @@ export const getMonthNameFromNumber = (month: number, language?: string): string
 export const getDatesOfMonth = (date: Date, language?: string): { d: Date; active: boolean; inMonth: boolean }[] => {
   // generate dates of each week of the month including the residue dates
   // of the last week of previous month and first week of next month
-  const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 0);
+  const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
   const lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, -1);
 
   const firstDayOfMonthWeekDay = firstDayOfMonth.getDay();
@@ -51,7 +51,7 @@ export const getDatesOfMonth = (date: Date, language?: string): { d: Date; activ
     0
   );
 
-  const nextMonth = new Date(date.getFullYear(), date.getMonth() + 2, 0);
+  const nextMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
   const dates: { d: Date; active: boolean; inMonth: boolean }[] = [];
 
@@ -60,7 +60,7 @@ export const getDatesOfMonth = (date: Date, language?: string): { d: Date; activ
       d: new Date(
         previousMonth.getFullYear(),
         previousMonth.getMonth(),
-        previousMonthLastDay.getDate() - firstDayOfMonthWeekDay + i + (language === "fr" ? 2 : 1)
+        previousMonthLastDay.getDate() - firstDayOfMonthWeekDay + i + (language === "fr" ? 1 : 1)
       ),
       active: false,
       inMonth: false,
@@ -69,7 +69,7 @@ export const getDatesOfMonth = (date: Date, language?: string): { d: Date; activ
 
   for (let i = 0; i < lastDayOfMonth.getDate(); i++) {
     dates.push({
-      d: new Date(date.getFullYear(), date.getMonth(), i + (language === "fr" ? 2 : 1)),
+      d: new Date(date.getFullYear(), date.getMonth(), i + (language === "fr" ? 1 : 1)),
       active: true,
       inMonth: true,
     });
