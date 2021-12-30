@@ -6,6 +6,7 @@ export type MonthPickerProps = {
   year: number;
   nextMonth: () => void;
   prevMonth: () => void;
+  language?: string;
 };
 
 const MonthPicker: React.FC<MonthPickerProps> = ({
@@ -13,6 +14,7 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
   year,
   nextMonth,
   prevMonth,
+  language,
 }) => {
   return (
     <div className="sdp--month-picker">
@@ -43,11 +45,11 @@ const MonthPicker: React.FC<MonthPickerProps> = ({
       <p
         className="sdp--text sdp--month-name"
         aria-label={`${getMonthNameFromNumber(
-          month
+          month, language
         )} ${year} is currently open in Date Picker`}
         tabIndex={0}
       >
-        {getMonthNameFromNumber(month)} {year}
+        {getMonthNameFromNumber(month, language)} {year}
       </p>
       <button
         className="sdp--square-btn sdp--square-btn__shadowed"

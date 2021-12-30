@@ -26,6 +26,11 @@ export type DatePickerProps = {
    * The color that will be use to color the day choosen.
    */
   color?: string;
+  /**
+   * The language used to show the date.
+   */
+  language?: string;
+
 } & React.PropsWithRef<
   Omit<React.HTMLProps<HTMLDivElement>, 'onChange' | 'selected'>
 >;
@@ -39,6 +44,7 @@ const DatePicker = React.forwardRef<HTMLDivElement, DatePickerProps>(
       maxDate,
       className,
       color,
+      language,
       ...props
     },
     ref
@@ -107,15 +113,16 @@ const DatePicker = React.forwardRef<HTMLDivElement, DatePickerProps>(
           year={monthDate.getFullYear()}
           nextMonth={nextMonth}
           prevMonth={prevMonth}
+          language={language}
         />
         <div className="sdp--dates-grid">
-          <p className="sdp--text sdp--text__inactive">Su</p>
-          <p className="sdp--text sdp--text__inactive">Mo</p>
-          <p className="sdp--text sdp--text__inactive">Tu</p>
-          <p className="sdp--text sdp--text__inactive">We</p>
-          <p className="sdp--text sdp--text__inactive">Th</p>
-          <p className="sdp--text sdp--text__inactive">Fr</p>
-          <p className="sdp--text sdp--text__inactive">Sa</p>
+          <p className="sdp--text sdp--text__inactive">{language === "fr" ? "lu" : "Su"}</p>
+          <p className="sdp--text sdp--text__inactive">{language === "fr" ? "ma" : "Mo"}</p>
+          <p className="sdp--text sdp--text__inactive">{language === "fr" ? "me" : "Th"}</p>
+          <p className="sdp--text sdp--text__inactive">{language === "fr" ? "je" : "We"}</p>
+          <p className="sdp--text sdp--text__inactive">{language === "fr" ? "ve" : "Tu"}</p>
+          <p className="sdp--text sdp--text__inactive">{language === "fr" ? "sa" : "Fr"}</p>
+          <p className="sdp--text sdp--text__inactive">{language === "fr" ? "di" : "Sa"}</p>
           {getDatesOfMonth(monthDate).map(({ d, active }) => {
             const dVal = d.getTime();
 

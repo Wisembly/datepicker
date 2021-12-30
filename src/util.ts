@@ -13,11 +13,26 @@ const MONTHS: { [key: number]: string } = {
   11: 'December',
 };
 
-export const getMonthNameFromNumber = (month: number): string => {
+const MOIS: { [key: number]: string } = {
+  0: 'janvier',
+  1: 'février',
+  2: 'mars',
+  3: 'avril',
+  4: 'mai',
+  5: 'juin',
+  6: 'juillet',
+  7: 'août',
+  8: 'septembre',
+  9: 'octobre',
+  10: 'novembre',
+  11: 'décembre',
+};
+
+export const getMonthNameFromNumber = (month: number, language?: string): string => {
   if (month < 0 || month > 11) {
     throw new Error(`Invalid month number: ${month}`);
   }
-  return MONTHS[month];
+  return language == "fr" ? MOIS[month] : MONTHS[month];
 };
 
 export const getDatesOfMonth = (date: Date): { d: Date; active: boolean }[] => {
