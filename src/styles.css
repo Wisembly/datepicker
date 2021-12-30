@@ -2,7 +2,6 @@
   --font: 'Montserrat',
     sans-serif;
   --selected-date-color: #ffffff;
-  width: 16rem;
   border: none;
   border-radius: 0.5rem;
   box-shadow: var(--shadow);
@@ -17,6 +16,7 @@
 }
 
 .sdp--month-name {
+  width: 32px;
   line-height: 130%;
   padding: 0.5rem;
   border: none;
@@ -36,8 +36,8 @@
 }
 
 .sdp--square-btn {
-  height: 1.8rem;
-  width: 1.8rem;
+  height: 32px;
+  width: 32px;
   display: flex;
   justify-content: center;
   align-items: center;
