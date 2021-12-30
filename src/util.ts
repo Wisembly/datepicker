@@ -60,7 +60,7 @@ export const getDatesOfMonth = (date: Date, language?: string): { d: Date; activ
       d: new Date(
         previousMonth.getFullYear(),
         previousMonth.getMonth(),
-        previousMonthLastDay.getDate() - firstDayOfMonthWeekDay + i + (language === "fr" ? 1 : 1)
+        previousMonthLastDay.getDate() - firstDayOfMonthWeekDay + i + 1
       ),
       active: false,
       inMonth: false,
@@ -69,7 +69,7 @@ export const getDatesOfMonth = (date: Date, language?: string): { d: Date; activ
 
   for (let i = 0; i < lastDayOfMonth.getDate(); i++) {
     dates.push({
-      d: new Date(date.getFullYear(), date.getMonth(), i + (language === "fr" ? 1 : 1)),
+      d: new Date(date.getFullYear(), date.getMonth(), i + 1),
       active: true,
       inMonth: true,
     });
@@ -77,7 +77,7 @@ export const getDatesOfMonth = (date: Date, language?: string): { d: Date; activ
 
   for (let i = 0; i < 6 - lastDayOfMonthWeekDay; i++) {
     dates.push({
-      d: new Date(nextMonth.getFullYear(), nextMonth.getMonth(), i + (language === "fr" ? 2 : 1)),
+      d: new Date(nextMonth.getFullYear(), nextMonth.getMonth(), i + 1),
       active: false,
       inMonth: false,
     });
