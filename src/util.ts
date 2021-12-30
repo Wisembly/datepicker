@@ -38,7 +38,7 @@ export const getMonthNameFromNumber = (month: number, language?: string): string
 export const getDatesOfMonth = (date: Date, language?: string): { d: Date; active: boolean; inMonth: boolean }[] => {
   // generate dates of each week of the month including the residue dates
   // of the last week of previous month and first week of next month
-  const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 1);
+  const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 0);
   const lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, -1);
 
   const firstDayOfMonthWeekDay = firstDayOfMonth.getDay();
