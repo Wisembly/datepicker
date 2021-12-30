@@ -39,7 +39,7 @@ export const getDatesOfMonth = (date: Date, language?: string): { d: Date; activ
   // generate dates of each week of the month including the residue dates
   // of the last week of previous month and first week of next month
   const firstDayOfMonth = new Date(date.getFullYear(), date.getMonth(), 2);
-  const lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 1);
+  const lastDayOfMonth = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 
   const firstDayOfMonthWeekDay = firstDayOfMonth.getDay();
   const lastDayOfMonthWeekDay = lastDayOfMonth.getDay();
@@ -53,7 +53,7 @@ export const getDatesOfMonth = (date: Date, language?: string): { d: Date; activ
 
   const nextMonth = new Date(date.getFullYear(), date.getMonth() + 2, 0);
 
-  const dates: { d: Date; active: boolean; inMonth: boolean; }[] = [];
+  const dates: { d: Date; active: boolean; inMonth: boolean }[] = [];
 
   for (let i = 0; i < firstDayOfMonthWeekDay; i++) {
     dates.push({
